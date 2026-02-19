@@ -1,8 +1,8 @@
 import{useState} from 'react'
 export default function Search(){
-    const[Search,setSearch]=useState("");
-    const name=["KIET","Sanya","pari"]
-    const student=[""]
+    const[find,setFind]=useState("");
+    const name=["Ayush","Sanya","pari"];
+    const student=name.filter((names)=>names.toLowerCase().includes(find.toLowerCase()))
     return(
         <div>
             <h2>Demo to show search</h2>
@@ -10,6 +10,9 @@ export default function Search(){
             placeholder= 'Enter to search'
             value={find}
             onChange={(e)=>setFind(e.target.value)}/>
+            <ul>
+                {student.map((item,index)=><li key={index}>{item}</li>)}
+            </ul>
     
 
         </div>
