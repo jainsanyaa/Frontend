@@ -1,15 +1,16 @@
 import "./Header.css"
-export default function Header()
+export default function Header({title})
 {
     return (
         <>
-
-        <h1>Welcome To our first React App</h1>
+        <header>
+        <h1>{title}</h1>
         <nav className= "nav">
         <a href="#">Home</a>
         <a href="#">Contact</a>
         <a href="#">US</a>
         </nav>
+        </header>
         </>
    
     )

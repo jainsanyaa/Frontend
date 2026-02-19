@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+.register-form {
+  display: flex;
+  flex-direction: column;   /* name ke niche email */
+  gap: 15px;                /* inputs ke beech gap */
+  width: 320px;
+  margin: 40px auto;        /* center me lane ke liye */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.register-form input {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.register-form button {
+  background-color: #646cff;
+ 
+}
+
