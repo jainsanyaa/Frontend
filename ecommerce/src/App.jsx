@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
-
+import Header from './components/Header'
+import ProductList from './components/productList'
+import Cart from './components/cart'
+import Search from './components/Search'
 function App() {
+
+
   const [cart, setCart] = useState([]);
-  const product = [
-    {
+  const[totalAmt, setAmt] = useState(0);
+  const product = [  
+      {
       id: 1,
       name: "phone",
       price: 10000,
-      image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQVHKh04Muw3ZBjokE24dFfv1VvF3SFAkW6Dq_85vAsKcnF-NC_c74vN7CNBGRvT_soFZe6YZJrZjJEMXdM0AMWBik6o1S7ROh1v58q-ybrZPO8ZsFt7lxrJVg"
+      image: "https://static.vecteezy.com/system/resources/previews/012/300/211/original/smart-phone-illustration-png.png"
     },
     {
       id: 2,
@@ -19,19 +23,23 @@ function App() {
       image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTlueYTHc15CsHXc0IE4D1f3m1LiCsdhMWYwlS6gHV1eU721OzdkoSqhEOs0lsjdox27VZWvEshqGJyH1eXS58JWezeD6Md5qn0OeYboto12O4h7bHGXPh8sg"
     }
   ];
+
   function addToCart(product) {
     setCart([...cart, product]);
+    setAmt(totalAmt + product.price);
   }
   function removeFromCart(index) {
     const updatedCart = cart.filter((_, i)=>i!= index);
-    setCart(updatedCart);
+   setCart(updatedCart);
+
   }
-  const totalAmount = cart.reduce((total, item) => total + index.price, 0);
+ //const totalAmount = cart.reduce((total, item) => total + index.price, 0);
   return (
       <div>
+        <Search/>
         <Header  cartCount = {cart.length} />
-        <product />
-        <Cart />        
+        <ProductList products={product} addToCart={addToCart} />
+        <Cart totalAmt={totalAmt}></Cart>
       </div>
         
   )
